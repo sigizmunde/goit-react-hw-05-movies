@@ -25,3 +25,33 @@ export async function fetchMovie({ movie_id }) {
     console.error(err);
   }
 }
+
+export async function fetchCast({ movie_id }) {
+  const params = { params: { api_key: API_KEY } };
+  try {
+    const response = await axios.get(`/movie/${movie_id}/credits`, params);
+    return response;
+  } catch (err) {
+    console.error(err);
+  }
+}
+
+export async function fetchReviews({ movie_id }) {
+  const params = { params: { api_key: API_KEY } };
+  try {
+    const response = await axios.get(`/movie/${movie_id}/reviews`, params);
+    return response;
+  } catch (err) {
+    console.error(err);
+  }
+}
+
+export async function searchMovies({ query }) {
+  const params = { params: { api_key: API_KEY, query } };
+  try {
+    const response = await axios.get(`/search/movie`, params);
+    return response;
+  } catch (err) {
+    console.error(err);
+  }
+}
